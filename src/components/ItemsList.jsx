@@ -7,6 +7,7 @@ const ItemsList = ({ items }) => {
 				<Item
 					key={item.id}
 					name={item.name}
+					daysPerUnit={item.daysPerUnit}
 					units={item.units}
 					days={item.totalDays()}
 				/>

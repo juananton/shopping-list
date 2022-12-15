@@ -1,47 +1,44 @@
 import ItemsList from './components/ItemsList';
 import './styles/css/index.css';
 
-function totalDays() {
-	return Math.ceil(this.units * this.daysPerUnit);
-}
-
 const ITEMS = [
 	{
 		id: 1,
 		name: 'Queso',
 		daysPerUnit: 7,
-		units: 1,
-		totalDays
+		units: 3
 	},
 	{
 		id: 2,
 		name: 'Aceite',
-		daysPerUnit: 14,
-		units: 2,
-		totalDays
+		daysPerUnit: 7,
+		units: 2
 	},
 	{
 		id: 3,
 		name: 'Atún',
 		daysPerUnit: 5,
-		units: 6,
-		totalDays
+		units: 6
 	},
 	{
 		id: 4,
 		name: 'Lentejas',
 		daysPerUnit: 14,
-		units: 3,
-		totalDays
+		units: 3
 	},
 	{
 		id: 5,
 		name: 'Tostas de maíz',
 		daysPerUnit: 7,
-		units: 2,
-		totalDays
+		units: 2
 	}
 ];
+
+ITEMS.forEach(item => {
+	item.totalDays = () => {
+		return Math.ceil(item.units * item.daysPerUnit);
+	};
+});
 
 const App = () => (
 	<div className='app'>
