@@ -2,7 +2,7 @@
 	"name": "first-project",
 	"version": "0.0.0",
 	"scripts": {
-		"dev": "vite",
+		"dev": "vite --host",
 		"build": "vite build",
 		"preview": "vite preview",
 		"format": "prettier --write .",
@@ -10,8 +10,10 @@
 		"compile:sass": "sass src/styles/scss/index.scss src/styles/css/index.css -w"
 	},
 	"dependencies": {
+		"install": "^0.13.0",
 		"react": "18.2.0",
-		"react-dom": "18.2.0"
+		"react-dom": "18.2.0",
+		"react-icons": "^4.7.1"
 	},
 	"devDependencies": {
 		"@vitejs/plugin-react": "2.2.0",

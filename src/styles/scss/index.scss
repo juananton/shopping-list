@@ -1,7 +1,14 @@
 /* RESET */
-@import 'reset';
+@import 'base/reset';
 
 /* THEME */
-@import 'theme';
+@import 'base/theme';
+
+/* GLOBAL */
+@import 'base/global';
 
 /* COMPONENTS */
+@import 'components/App';
+@import 'components/ItemsList';
+@import 'components/Item';
+@import 'components/Button';
