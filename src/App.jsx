@@ -6,31 +6,31 @@ const ITEMS = [
 		id: 1,
 		name: 'Queso',
 		daysPerUnit: 7,
-		units: 3
+		units: 0
 	},
 	{
 		id: 2,
 		name: 'Aceite',
 		daysPerUnit: 7,
-		units: 2
+		units: 0
 	},
 	{
 		id: 3,
 		name: 'Atún',
 		daysPerUnit: 5,
-		units: 6
+		units: 0
 	},
 	{
 		id: 4,
 		name: 'Lentejas',
 		daysPerUnit: 14,
-		units: 3
+		units: 0
 	},
 	{
 		id: 5,
 		name: 'Tostas de maíz',
 		daysPerUnit: 7,
-		units: 2
+		units: 0
 	}
 ];
 

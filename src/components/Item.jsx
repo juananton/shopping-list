@@ -9,7 +9,7 @@ const Item = ({ name, daysPerUnit, days }) => {
 	useEffect(() => {
 		let daysTimeout = null;
 		if (daysCount > 0) {
-			daysTimeout = setTimeout(() => setDaysCount(daysCount - 1), 2000);
+			daysTimeout = setTimeout(() => setDaysCount(daysCount - 1), 10000);
 		}
 		return () => {
 			clearTimeout(daysTimeout);
