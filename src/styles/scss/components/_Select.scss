@@ -1,0 +1,30 @@
+.select {
+	.label {
+		display: block;
+		margin-bottom: 0.5rem;
+	}
+
+	.wrapper {
+		position: relative;
+	}
+
+	.select {
+		cursor: pointer;
+		padding: 0 0.75rem;
+		padding-right: 2.5rem;
+		border: 1px solid $color-gray;
+		border-radius: $radius-sm;
+		appearance: none;
+		height: 2.5rem;
+		width: 100%;
+	}
+
+	.icon {
+		pointer-events: none;
+		position: absolute;
+		width: 1.25rem;
+		right: 12px;
+		top: 0.75rem;
+		color: $color-green;
+	}
+}
