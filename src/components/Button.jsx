@@ -5,6 +5,7 @@ const BTN_VARIANTS = {
 const BTN_USES = {
 	primary: 'btn-primary',
 	secondary: 'btn-secondary',
+	nobg: 'btn-nobg',
 	disabled: 'disabled'
 };
 

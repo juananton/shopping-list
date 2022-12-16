@@ -11,8 +11,8 @@
 
 		.icon {
 			margin-top: 3px;
-			width: 1.15rem;
-			height: 1.15rem;
+			width: 1.25rem;
+			height: 1.25rem;
 		}
 	}
 
@@ -20,18 +20,37 @@
 		border: 1px solid $color-green;
 		background-color: $color-green;
 		color: $color-white;
+
+		&:hover {
+			background-color: darken($color-green, 5%);
+			border-color: darken($color-green, 5%);
+		}
 	}
 
 	&.btn-secondary {
 		border: 1px solid $color-light-green;
 		background-color: $color-light-green;
 		color: $color-green;
+		&:hover {
+			background-color: darken($color-light-green, 5%);
+			border-color: darken($color-light-green, 5%);
+		}
 	}
-}
 
-.btn:disabled {
-	background-color: $color-light-gray;
-	border-color: $color-light-gray;
-	color: $color-gray;
-	cursor: auto;
+	&.btn-nobg {
+		border: transparent;
+		background-color: transparent;
+		color: $color-green;
+
+		&:hover {
+			background-color: $color-light-green;
+			border-color: $color-light-green;
+		}
+	}
+	&:disabled {
+		background-color: $color-light-gray;
+		border-color: $color-light-gray;
+		color: $color-gray;
+		pointer-events: none;
+	}
 }
