@@ -1,6 +1,7 @@
+import Button from './Button';
 import Item from './Item';
 
-const ItemsList = ({ items }) => {
+const ItemsList = ({ items, setOpened }) => {
 	const itemsRendered =
 		items.length > 0 ? (
 			items.map(item => (
@@ -17,7 +18,12 @@ const ItemsList = ({ items }) => {
 		);
 	return (
 		<div className='items-list'>
-			<h1>Alimentos</h1>
+			<div className='header'>
+				<h1>Alimentos</h1>
+				<Button use='primary' onClick={() => setOpened(true)}>
+					Añadir
+				</Button>
+			</div>
 			{itemsRendered}
 		</div>
 	);

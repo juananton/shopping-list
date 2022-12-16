@@ -9,7 +9,7 @@ const Item = ({ name, daysPerUnit, days }) => {
 	useEffect(() => {
 		let daysTimeout = null;
 		if (daysCount > 0) {
-			daysTimeout = setTimeout(() => setDaysCount(daysCount - 1), 10000);
+			daysTimeout = setTimeout(() => setDaysCount(daysCount - 1), 5000);
 		}
 		return () => {
 			clearTimeout(daysTimeout);
@@ -43,10 +43,10 @@ const Item = ({ name, daysPerUnit, days }) => {
 			</div>
 			<div className='units-controller'>
 				<span className='units'>{`${unitsCount}`}</span>
-				<Button onClick={removeItem} disabled={daysCount === 0}>
+				<Button onClick={removeItem} variant='icon' disabled={daysCount === 0}>
 					<FiMinus className='icon' />
 				</Button>
-				<Button onClick={addItem}>
+				<Button onClick={addItem} variant='icon'>
 					<FiPlus className='icon' />
 				</Button>
 			</div>

@@ -252,6 +252,18 @@ summary {
   display: list-item;
 }
 
+/*
+CUSTOM
+*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
 /* THEME */
 /* Colors */
 /* Border radius */
@@ -266,14 +278,19 @@ body {
 
 /* GLOBAL */
 /* COMPONENTS */
-.app {
+.items-list {
   width: 600px;
   max-width: 100%;
   margin: 0 auto;
   padding: 0 1rem;
 }
-
-.items-list h1 {
+.items-list .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+.items-list .header h1 {
   font-size: 1.5rem;
 }
 
@@ -281,7 +298,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 0;
+  padding: 0.75rem 0;
   border-top: 1px solid #ededed;
   background-color: #ffffff;
 }
@@ -304,26 +321,63 @@ body {
 }
 
 .btn {
-  border: 1px solid rgb(220, 236, 220);
   border-radius: 0.5rem;
-  background-color: rgb(220, 236, 220);
-  color: rgb(0, 154, 36);
+  height: 2.5rem;
+  padding: 0.25rem 1rem;
   cursor: pointer;
 }
-.btn.icon-btn {
+.btn.btn-icon {
   width: 2.5rem;
   height: 2.5rem;
-  padding-top: 4px;
+  padding: 4px;
 }
-.btn .icon {
-  width: 1.25rem;
-  height: 1.25rem;
+.btn.btn-icon .icon {
+  margin-top: 3px;
+  width: 1.15rem;
+  height: 1.15rem;
 }
+.btn.btn-primary {
+  border: 1px solid rgb(0, 154, 36);
+  background-color: rgb(0, 154, 36);
+  color: #ffffff;
+}
+.btn.btn-secondary {
+  border: 1px solid rgb(220, 236, 220);
+  background-color: rgb(220, 236, 220);
+  color: rgb(0, 154, 36);
+}
+
 .btn:disabled {
   background-color: #ededed;
   border-color: #ededed;
   color: #9e9e9e;
   cursor: auto;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(28, 28, 28, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-window {
+  width: 90vw;
+  background-color: #ffffff;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  min-height: 8rem;
+}
+.modal-window .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.modal-window .header h1 {
+  font-size: 1.25rem;
 }
 
 /*# sourceMappingURL=index.css.map */
