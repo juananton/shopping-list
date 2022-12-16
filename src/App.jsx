@@ -1,6 +1,4 @@
-import { useState } from 'react';
 import ItemsList from './components/ItemsList';
-import Modal from './components/Modal';
 import './styles/css/index.css';
 
 const ITEMS = [
@@ -43,16 +41,9 @@ ITEMS.forEach(item => {
 });
 
 const App = () => {
-	const [opened, setOpened] = useState(false);
-
 	return (
 		<div className='app'>
-			{opened && (
-				<Modal title='Nuevo alimento' closeModal={() => setOpened(false)}>
-					<p>Modal form</p>
-				</Modal>
-			)}
-			<ItemsList items={ITEMS} setOpened={setOpened} />
+			<ItemsList items={ITEMS} />
 		</div>
 	);
 };

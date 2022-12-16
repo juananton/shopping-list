@@ -1,0 +1,16 @@
+.creation-form {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+
+	.buttons {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		margin-top: 1.25rem;
+
+		Button {
+			margin-left: 0.75rem;
+		}
+	}
+}
