@@ -1,10 +1,11 @@
 import React from 'react';
 
-const Input = ({ label, ...props }) => {
+const Input = ({ label, message, error, ...props }) => {
 	return (
 		<label>
 			<div className='label'>{label}</div>
-			<input {...props} type='text' className='input' />
+			<input {...props} className={`input ${error ? 'error' : ''}`} />
+			{message && <p className='message'>{message}</p>}
 		</label>
 	);
 };

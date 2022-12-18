@@ -48,9 +48,9 @@
 		}
 	}
 	&:disabled {
-		background-color: $color-light-gray;
-		border-color: $color-light-gray;
-		color: $color-gray;
+		background-color: $color-gray-1;
+		border-color: $color-gray-1;
+		color: $color-gray-2;
 		pointer-events: none;
 	}
 }

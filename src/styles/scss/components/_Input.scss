@@ -1,23 +1,25 @@
-.label {
-	display: block;
-	margin-bottom: 0.5rem;
-}
+label {
+	.label {
+		display: block;
+		margin-bottom: 0.5rem;
+	}
 
-.input {
-	padding: 0.25rem 1rem;
-	border: 1px solid $color-gray;
-	border-radius: $radius-sm;
-	height: 2.5rem;
-	width: 100%;
-}
+	.input {
+		padding: 0.25rem 1rem;
+		border: 1px solid $color-gray-2;
+		border-radius: $radius-sm;
+		height: 2.5rem;
+		width: 100%;
+	}
 
-.error {
-	border-color: $color-red;
-}
+	.error {
+		border-color: $color-red;
+	}
 
-.errorText {
-	font-size: $text-sm;
-	display: block;
-	margin-top: 0.5rem;
-	color: $color-red;
+	.errorText {
+		font-size: $text-sm;
+		display: block;
+		margin-top: 0.5rem;
+		color: $color-red;
+	}
 }

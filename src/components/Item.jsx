@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import { FiMinus, FiPlus } from 'react-icons/fi';
 import Button from './Button';
 
-const Item = ({ name, daysPerUnit, days }) => {
+const Item = ({ name, daysPerUnit, days, units }) => {
 	const [daysCount, setDaysCount] = useState(days);
-	const [unitsCount, setUnitsCount] = useState(0);
+	const [unitsCount, setUnitsCount] = useState(units);
 
 	useEffect(() => {
 		let daysTimeout = null;
