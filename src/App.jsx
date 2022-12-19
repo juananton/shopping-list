@@ -1,31 +1,43 @@
 import ItemsList from './components/ItemsList';
+import { CATEGORIES } from './lib/constants';
 import './styles/css/index.css';
 
 const ITEMS = [
 	{
 		name: 'Queso',
 		daysPerUnit: 7,
-		units: 0
+		units: 0,
+		category: CATEGORIES.CAT1
 	},
 	{
 		name: 'Aceite',
 		daysPerUnit: 7,
-		units: 0
+		units: 0,
+		category: CATEGORIES.CAT1
 	},
 	{
-		name: 'Atún',
+		name: 'Papel higiénico',
 		daysPerUnit: 5,
-		units: 0
+		units: 6,
+		category: CATEGORIES.CAT3
 	},
 	{
 		name: 'Lentejas',
 		daysPerUnit: 14,
-		units: 0
+		units: 0,
+		category: CATEGORIES.CAT1
 	},
 	{
 		name: 'Tostas de maíz',
 		daysPerUnit: 7,
-		units: 0
+		units: 0,
+		category: CATEGORIES.CAT1
+	},
+	{
+		name: 'Pastillas lavavajillas',
+		daysPerUnit: 25,
+		units: 1,
+		category: CATEGORIES.CAT2
 	}
 ];
 

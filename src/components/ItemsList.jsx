@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import Button from './Button';
 import CreationForm from './CreationForm';
 import Item from './Item';
@@ -17,7 +18,7 @@ const ItemsList = ({ items }) => {
 		item.totalDays = () => {
 			return Math.ceil(item.units * item.daysPerUnit);
 		};
-		item.id = crypto.randomUUID();
+		item.id = uuidv4();
 	});
 
 	const itemsRendered =
@@ -26,6 +27,7 @@ const ItemsList = ({ items }) => {
 				<Item
 					key={item.id}
 					name={item.name}
+					category={item.category}
 					daysPerUnit={item.daysPerUnit}
 					units={item.units}
 					days={item.totalDays()}

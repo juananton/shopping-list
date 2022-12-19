@@ -8,22 +8,61 @@
 
 	h2 {
 		font-size: $title-2;
-		margin: 0;
+		margin-right: 0.5rem;
 		margin-bottom: 0.25rem;
+	}
+
+	.category {
+		margin-bottom: 0.25rem;
+	}
+
+	.days {
+		color: $color-green;
+
+		&.warning {
+			color: $color-orange;
+		}
+
+		&.error {
+			color: $color-red;
+		}
+
+		span {
+			font-size: $text-sm;
+			font-weight: 400;
+			margin-left: 0.125rem;
+		}
 	}
 
 	.units-controller {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		margin-top: 4px;
 
 		.units {
-			font-size: $title-2;
+			font-weight: 600;
+			color: $color-green;
+			font-size: $title-1;
 			margin-right: 0.5rem;
+
+			&.error {
+				color: $color-red;
+			}
+
+			&.warning {
+				color: $color-orange;
+			}
+
+			span {
+				font-size: $text-sm;
+				font-weight: 400;
+				margin-left: 0.125rem;
+			}
 		}
 
 		Button {
-			margin-left: 0.75rem;
+			margin-left: 0.5rem;
 		}
 	}
 }

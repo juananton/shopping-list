@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { FiMinus, FiPlus } from 'react-icons/fi';
 import Button from './Button';
+import Tag from './Tag';
 
-const Item = ({ name, daysPerUnit, days, units }) => {
+const Item = ({ name, daysPerUnit, days, units, category }) => {
 	const [daysCount, setDaysCount] = useState(days);
 	const [unitsCount, setUnitsCount] = useState(units);
 
@@ -10,6 +11,8 @@ const Item = ({ name, daysPerUnit, days, units }) => {
 		let daysTimeout = null;
 		if (daysCount > 0) {
 			daysTimeout = setTimeout(() => setDaysCount(daysCount - 1), 5000);
+		} else if (daysCount < 0) {
+			setDaysCount(0);
 		}
 		return () => {
 			clearTimeout(daysTimeout);
@@ -20,30 +23,40 @@ const Item = ({ name, daysPerUnit, days, units }) => {
 		setUnitsCount(Math.ceil(daysCount / daysPerUnit));
 	}, [daysCount, daysPerUnit]);
 
-	const updateUnits = () =>
-		setUnitsCount(Math.ceil((daysCount + daysPerUnit) / daysPerUnit));
-
 	const addItem = () => {
 		if (daysCount >= 0) {
 			setDaysCount(daysCount + daysPerUnit);
-			updateUnits();
 		}
 	};
 
 	const removeItem = () => {
 		setDaysCount(daysCount - daysPerUnit);
-		updateUnits();
+	};
+
+	const finishWarning = () => {
+		if (daysCount === 0) {
+			return 'error';
+		} else if (daysCount <= daysPerUnit) {
+			return 'warning';
+		}
 	};
 
 	return (
 		<div className='item'>
 			<div className='wrapper'>
+				<Tag className='category'>{category}</Tag>
 				<h2 className='name'>{name}</h2>
-				<span className='days'>{`${daysCount} días`}</span>
+				<span className={`days ${finishWarning()}`}>
+					{daysCount}
+					<span>días</span>
+				</span>
 			</div>
 			<div className='units-controller'>
-				<span className='units'>{`${unitsCount}`}</span>
-				<Button onClick={removeItem} variant='icon' disabled={daysCount === 0}>
+				<span className={`units ${finishWarning()}`}>
+					{unitsCount}
+					{/* <span>uds.</span> */}
+				</span>
+				<Button onClick={removeItem} variant='icon' disabled={daysCount <= 0}>
 					<FiMinus className='icon' />
 				</Button>
 				<Button onClick={addItem} variant='icon'>

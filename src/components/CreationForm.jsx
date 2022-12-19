@@ -4,17 +4,15 @@ import Button from './Button';
 import Input from './Input';
 import Select from './Select';
 
-CATEGORIES.map(i => console.log(i));
-
 const CreationForm = ({ closeModal, addItem }) => {
 	const [nameValue, setNameValue] = useState('');
-	const [daysValue, setDaysValue] = useState(1);
+	const [daysPerUnitValue, setDaysPerUnitValue] = useState(1);
 	const [unitsValue, setUnitsValue] = useState(1);
+	const [categoryValue, setCategoryValue] = useState(CATEGORIES.CAT1);
 	const [nameValidation, setNameValidation] = useState({
 		message: '',
 		error: false
 	});
-	const [categoryValue, setCategoryValue] = useState();
 
 	const handleSubmit = e => {
 		e.preventDefault();
@@ -29,7 +27,7 @@ const CreationForm = ({ closeModal, addItem }) => {
 
 		const newItem = {
 			name: nameValue,
-			daysPerUnit: daysValue,
+			daysPerUnit: daysPerUnitValue,
 			units: unitsValue,
 			category: categoryValue
 		};
@@ -38,19 +36,30 @@ const CreationForm = ({ closeModal, addItem }) => {
 		closeModal(true);
 	};
 
-	if (nameValidation.message && nameValue !== '') {
-		setNameValidation({
-			message: '',
-			error: false
-		});
-	}
+	const handleNameChange = e => {
+		if (nameValue.length >= 0 && nameValue.length < 25) {
+			setNameValidation({
+				message: '',
+				error: false
+			});
+		} else {
+			setNameValidation({
+				message: 'El nombre debe tener menos de 20 caracteres',
+				error: true
+			});
+		}
+
+		setNameValue(e.target.value);
+		console.log(nameValue.length);
+	};
+
 	return (
 		<form className='creation-form' onSubmit={handleSubmit}>
 			<Input
 				type='text'
 				label='Nombre'
 				value={nameValue}
-				onChange={e => setNameValue(e.target.value)}
+				onChange={handleNameChange}
 				message={nameValidation.message}
 				error={nameValidation.error}
 				autoFocus
@@ -58,9 +67,11 @@ const CreationForm = ({ closeModal, addItem }) => {
 			<Select
 				label='Categoría'
 				value={categoryValue}
-				onChange={e => setCategoryValue(e.target.value)}
+				onChange={e => {
+					setCategoryValue(e.target.value);
+				}}
 			>
-				{CATEGORIES.map(cat => (
+				{Object.values(CATEGORIES).map(cat => (
 					<option key={cat} value={cat}>
 						{cat}
 					</option>
@@ -69,9 +80,9 @@ const CreationForm = ({ closeModal, addItem }) => {
 			<Input
 				type='number'
 				label='Días por unidad'
-				value={daysValue}
+				value={daysPerUnitValue}
 				min={1}
-				onChange={e => setDaysValue(+e.target.value)}
+				onChange={e => setDaysPerUnitValue(+e.target.value)}
 			/>
 			<Input
 				type='number'
