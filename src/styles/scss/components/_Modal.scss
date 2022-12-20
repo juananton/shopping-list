@@ -21,14 +21,25 @@
 		padding: 1.5rem;
 		min-height: 8rem;
 
-		.header {
+		&-header {
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
-			margin-bottom: 1.5rem;
+			margin-bottom: 1.75rem;
 
 			h1 {
-				font-size: $title-2;
+				font-size: $title-1;
+			}
+		}
+
+		&-footer {
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+			margin-top: 1.25rem;
+
+			Button {
+				margin-left: 0.75rem;
 			}
 		}
 	}
