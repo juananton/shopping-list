@@ -7,6 +7,8 @@ import {
 	FiTrash2
 } from 'react-icons/fi';
 import Button from './Button';
+import DeleteForm from './DeleteForm';
+import Modal from './Modal';
 import Tag from './Tag';
 
 const Item = ({ name, daysPerUnit, days, units, category }) => {
@@ -30,13 +32,13 @@ const Item = ({ name, daysPerUnit, days, units, category }) => {
 		setUnitsCount(Math.ceil(daysCount / daysPerUnit));
 	}, [daysCount, daysPerUnit]);
 
-	const addItem = () => {
+	const addUnit = () => {
 		if (daysCount >= 0) {
 			setDaysCount(daysCount + daysPerUnit);
 		}
 	};
 
-	const removeItem = () => {
+	const removeUnit = () => {
 		setDaysCount(daysCount - daysPerUnit);
 	};
 
@@ -48,16 +50,39 @@ const Item = ({ name, daysPerUnit, days, units, category }) => {
 		}
 	};
 
-	const deleteItem = () => {
-		setActionsDropdown(false);
+	const [modalContent, setModalContent] = useState({
+		formDisplay: undefined,
+		formTitle: '',
+		formId: ''
+	});
+
+	const deleteModal = () => {
+		setModalContent({
+			formDisplay: <DeleteForm />,
+			formTitle: 'Eliminar',
+			formId: 'delete'
+		});
 	};
 
-	const editItem = () => {
-		setActionsDropdown(false);
+	const editModal = () => {
+		setModalContent({
+			formDisplay: <DeleteForm />,
+			formTitle: 'Editar',
+			formId: 'edit'
+		});
 	};
+
+	const closeModal = () => setModalContent(false);
 
 	return (
 		<div className='item'>
+			<Modal
+				formTitle={modalContent.formTitle}
+				formId={modalContent.formId}
+				closeModal={closeModal}
+			>
+				{modalContent.formDisplay}
+			</Modal>
 			<div className='wrapper'>
 				<Tag className='category'>{category}</Tag>
 				<h2 className='name'>{name}</h2>
@@ -67,14 +92,11 @@ const Item = ({ name, daysPerUnit, days, units, category }) => {
 				</span>
 			</div>
 			<div className='controls'>
-				<span className={`units ${finishWarning()}`}>
-					{unitsCount}
-					{/* <span>uds.</span> */}
-				</span>
-				<Button onClick={removeItem} variant='icon' disabled={daysCount <= 0}>
+				<span className={`units ${finishWarning()}`}>{unitsCount}</span>
+				<Button onClick={removeUnit} variant='icon' disabled={daysCount <= 0}>
 					<FiMinus className='icon' />
 				</Button>
-				<Button onClick={addItem} variant='icon'>
+				<Button onClick={addUnit} variant='icon'>
 					<FiPlus className='icon' />
 				</Button>
 				<Button
@@ -89,12 +111,12 @@ const Item = ({ name, daysPerUnit, days, units, category }) => {
 					<FiMoreVertical className='icon' />
 				</Button>
 				{actionsDropdown && (
-					<ul className='dropdown'>
-						<li onClick={editItem}>
+					<ul className='dropdown' onClick={() => setActionsDropdown(false)}>
+						<li onClick={editModal}>
 							<FiEdit className='icon' />
 							<span>Editar</span>
 						</li>
-						<li onClick={deleteItem}>
+						<li onClick={deleteModal}>
 							<FiTrash2 className='icon' />
 							<span>Eliminar</span>
 						</li>

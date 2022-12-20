@@ -77,8 +77,12 @@
 			right: 0;
 			top: 2rem;
 			color: $color-green;
+			min-width: 148px;
 
 			li {
+				display: flex;
+				align-items: center;
+				gap: 0.5rem;
 				padding: 0.75rem 1rem;
 				border-radius: $radius-sm;
 				cursor: pointer;
@@ -86,10 +90,6 @@
 
 			li:hover {
 				background-color: $color-light-green;
-			}
-
-			.icon {
-				margin-right: 0.5rem;
 			}
 		}
 	}

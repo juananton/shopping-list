@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import { CATEGORIES } from '../lib/constants';
-import Button from './Button';
 import Input from './Input';
 import Select from './Select';
 
-const CreationForm = ({ closeModal, addItem }) => {
+const CreateForm = ({ closeModal, addItem }) => {
 	const [nameValue, setNameValue] = useState('');
 	const [daysPerUnitValue, setDaysPerUnitValue] = useState(1);
 	const [unitsValue, setUnitsValue] = useState(1);
@@ -53,7 +52,7 @@ const CreationForm = ({ closeModal, addItem }) => {
 	};
 
 	return (
-		<form className='creation-form' onSubmit={handleSubmit}>
+		<form className='create-form' onSubmit={handleSubmit} id='create'>
 			<Input
 				type='text'
 				label='Nombre'
@@ -90,16 +89,8 @@ const CreationForm = ({ closeModal, addItem }) => {
 				min={0}
 				onChange={e => setUnitsValue(+e.target.value)}
 			/>
-			<div className='buttons'>
-				<Button type='button' onClick={closeModal}>
-					Cancelar
-				</Button>
-				<Button type='submit' use='primary'>
-					Añadir
-				</Button>
-			</div>
 		</form>
 	);
 };
 
-export default CreationForm;
+export default CreateForm;
