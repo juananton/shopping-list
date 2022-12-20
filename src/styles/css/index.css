@@ -325,31 +325,55 @@ h6 {
   font-weight: 400;
   margin-left: 0.125rem;
 }
-.item .units-controller {
+.item .controls {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-top: 4px;
+  position: relative;
 }
-.item .units-controller .units {
+.item .controls .units {
   font-weight: 600;
   color: rgb(0, 154, 36);
   font-size: 1.5rem;
   margin-right: 0.5rem;
 }
-.item .units-controller .units.error {
+.item .controls .units.error {
   color: rgb(240, 35, 35);
 }
-.item .units-controller .units.warning {
+.item .controls .units.warning {
   color: rgb(224, 134, 0);
 }
-.item .units-controller .units span {
+.item .controls .units span {
   font-size: 0.875rem;
   font-weight: 400;
   margin-left: 0.125rem;
 }
-.item .units-controller Button {
+.item .controls Button {
   margin-left: 0.5rem;
+}
+.item .controls .dropdown {
+  position: absolute;
+  background-color: #ffffff;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.15);
+  list-style: none;
+  z-index: 999;
+  right: 0;
+  top: 2rem;
+  color: rgb(0, 154, 36);
+}
+.item .controls .dropdown li {
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+.item .controls .dropdown li:hover {
+  background-color: rgb(220, 236, 220);
+}
+.item .controls .dropdown .icon {
+  margin-right: 0.5rem;
 }
 
 .btn {
@@ -391,7 +415,7 @@ h6 {
   background-color: transparent;
   color: rgb(0, 154, 36);
 }
-.btn.btn-nobg:hover {
+.btn.btn-nobg:hover, .btn.btn-nobg:focus {
   background-color: rgb(220, 236, 220);
   border-color: rgb(220, 236, 220);
 }

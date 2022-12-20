@@ -34,11 +34,12 @@
 		}
 	}
 
-	.units-controller {
+	.controls {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		margin-top: 4px;
+		position: relative;
 
 		.units {
 			font-weight: 600;
@@ -63,6 +64,33 @@
 
 		Button {
 			margin-left: 0.5rem;
+		}
+
+		.dropdown {
+			position: absolute;
+			background-color: $color-white;
+			padding: 0.5rem;
+			border-radius: $radius-sm;
+			box-shadow: $shadow-md;
+			list-style: none;
+			z-index: 999;
+			right: 0;
+			top: 2rem;
+			color: $color-green;
+
+			li {
+				padding: 0.75rem 1rem;
+				border-radius: $radius-sm;
+				cursor: pointer;
+			}
+
+			li:hover {
+				background-color: $color-light-green;
+			}
+
+			.icon {
+				margin-right: 0.5rem;
+			}
 		}
 	}
 }

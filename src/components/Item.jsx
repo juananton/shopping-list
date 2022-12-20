@@ -1,11 +1,18 @@
 import { useEffect, useState } from 'react';
-import { FiMinus, FiMoreVertical, FiPlus } from 'react-icons/fi';
+import {
+	FiEdit,
+	FiMinus,
+	FiMoreVertical,
+	FiPlus,
+	FiTrash2
+} from 'react-icons/fi';
 import Button from './Button';
 import Tag from './Tag';
 
 const Item = ({ name, daysPerUnit, days, units, category }) => {
 	const [daysCount, setDaysCount] = useState(days);
 	const [unitsCount, setUnitsCount] = useState(units);
+	const [actionsDropdown, setActionsDropdown] = useState(false);
 
 	useEffect(() => {
 		let daysTimeout = null;
@@ -41,6 +48,14 @@ const Item = ({ name, daysPerUnit, days, units, category }) => {
 		}
 	};
 
+	const deleteItem = () => {
+		setActionsDropdown(false);
+	};
+
+	const editItem = () => {
+		setActionsDropdown(false);
+	};
+
 	return (
 		<div className='item'>
 			<div className='wrapper'>
@@ -51,7 +66,7 @@ const Item = ({ name, daysPerUnit, days, units, category }) => {
 					<span>días</span>
 				</span>
 			</div>
-			<div className='units-controller'>
+			<div className='controls'>
 				<span className={`units ${finishWarning()}`}>
 					{unitsCount}
 					{/* <span>uds.</span> */}
@@ -62,9 +77,29 @@ const Item = ({ name, daysPerUnit, days, units, category }) => {
 				<Button onClick={addItem} variant='icon'>
 					<FiPlus className='icon' />
 				</Button>
-				<Button onClick={addItem} variant='icon' use='nobg'>
+				<Button
+					onClick={() =>
+						actionsDropdown
+							? setActionsDropdown(false)
+							: setActionsDropdown(true)
+					}
+					variant='icon'
+					use='nobg'
+				>
 					<FiMoreVertical className='icon' />
 				</Button>
+				{actionsDropdown && (
+					<ul className='dropdown'>
+						<li onClick={editItem}>
+							<FiEdit className='icon' />
+							<span>Editar</span>
+						</li>
+						<li onClick={deleteItem}>
+							<FiTrash2 className='icon' />
+							<span>Eliminar</span>
+						</li>
+					</ul>
+				)}
 			</div>
 		</div>
 	);
