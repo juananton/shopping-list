@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { FiMinus, FiPlus } from 'react-icons/fi';
+import { FiMinus, FiMoreVertical, FiPlus } from 'react-icons/fi';
 import Button from './Button';
 import Tag from './Tag';
 
@@ -36,7 +36,7 @@ const Item = ({ name, daysPerUnit, days, units, category }) => {
 	const finishWarning = () => {
 		if (daysCount === 0) {
 			return 'error';
-		} else if (daysCount <= daysPerUnit) {
+		} else if (daysCount <= 4) {
 			return 'warning';
 		}
 	};
@@ -61,6 +61,9 @@ const Item = ({ name, daysPerUnit, days, units, category }) => {
 				</Button>
 				<Button onClick={addItem} variant='icon'>
 					<FiPlus className='icon' />
+				</Button>
+				<Button onClick={addItem} variant='icon' use='nobg'>
+					<FiMoreVertical className='icon' />
 				</Button>
 			</div>
 		</div>

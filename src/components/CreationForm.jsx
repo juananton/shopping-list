@@ -50,7 +50,6 @@ const CreationForm = ({ closeModal, addItem }) => {
 		}
 
 		setNameValue(e.target.value);
-		console.log(nameValue.length);
 	};
 
 	return (
