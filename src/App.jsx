@@ -1,10 +1,10 @@
-import ItemsList from './components/ItemsList';
+import Manager from './components/Manager';
 import './styles/css/index.css';
 
 const App = () => {
 	return (
 		<div className='app'>
-			<ItemsList />
+			<Manager />
 		</div>
 	);
 };
