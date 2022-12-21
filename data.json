@@ -27,6 +27,20 @@
       "units": 0,
       "category": "Comida",
       "id": 4
+    },
+    {
+      "name": "Leche",
+      "daysPerUnit": 7,
+      "units": 6,
+      "category": "Comida",
+      "id": 5
+    },
+    {
+      "name": "Pasta de dientes",
+      "daysPerUnit": 25,
+      "units": 2,
+      "category": "Baño",
+      "id": 6
     }
   ]
 }

@@ -1,10 +1,13 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { CATEGORIES } from '../lib/constants';
+import ItemsContext from '../lib/context/ItemsContext';
 import Button from './Button';
 import Input from './Input';
 import Select from './Select';
 
-const CreateForm = ({ closeModal, addItem }) => {
+const CreateForm = ({ setShowModal }) => {
+	const { addItem } = useContext(ItemsContext);
+
 	const [nameValue, setNameValue] = useState('');
 	const [daysPerUnitValue, setDaysPerUnitValue] = useState(1);
 	const [unitsValue, setUnitsValue] = useState(1);
@@ -33,7 +36,7 @@ const CreateForm = ({ closeModal, addItem }) => {
 		};
 
 		addItem(newItem);
-		closeModal(true);
+		setShowModal(false);
 	};
 
 	const handleNameChange = e => {
@@ -91,7 +94,7 @@ const CreateForm = ({ closeModal, addItem }) => {
 				onChange={e => setUnitsValue(+e.target.value)}
 			/>
 			<div className='form-buttons'>
-				<Button type='button' onClick={closeModal}>
+				<Button type='button' onClick={() => setShowModal(false)}>
 					Cancelar
 				</Button>
 				<Button type='submit' use='primary'>

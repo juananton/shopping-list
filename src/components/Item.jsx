@@ -11,10 +11,12 @@ import DeleteForm from './DeleteForm';
 import Modal from './Modal';
 import Tag from './Tag';
 
-const Item = ({ id, name, daysPerUnit, days, units, category, deleteItem }) => {
+const Item = ({ item, days }) => {
 	const [daysCount, setDaysCount] = useState(days);
-	const [unitsCount, setUnitsCount] = useState(units);
+	const [unitsCount, setUnitsCount] = useState(item.units);
 	const [actionsDropdown, setActionsDropdown] = useState(false);
+
+	// Countdown logic
 
 	useEffect(() => {
 		let daysTimeout = null;
@@ -29,18 +31,8 @@ const Item = ({ id, name, daysPerUnit, days, units, category, deleteItem }) => {
 	}, [daysCount]);
 
 	useEffect(() => {
-		setUnitsCount(Math.ceil(daysCount / daysPerUnit));
-	}, [daysCount, daysPerUnit]);
-
-	const addUnit = () => {
-		if (daysCount >= 0) {
-			setDaysCount(daysCount + daysPerUnit);
-		}
-	};
-
-	const removeUnit = () => {
-		setDaysCount(daysCount - daysPerUnit);
-	};
+		setUnitsCount(Math.ceil(daysCount / item.daysPerUnit));
+	}, [daysCount, item.daysPerUnit]);
 
 	const finishWarning = () => {
 		if (daysCount === 0) {
@@ -50,30 +42,36 @@ const Item = ({ id, name, daysPerUnit, days, units, category, deleteItem }) => {
 		}
 	};
 
+	// Add and remove unit logic
+	const addUnit = () => {
+		if (daysCount >= 0) {
+			setDaysCount(daysCount + item.daysPerUnit);
+		}
+	};
+
+	const removeUnit = () => {
+		setDaysCount(daysCount - item.daysPerUnit);
+	};
+
+	// Access edit and delete item forms
+
 	const [modalContent, setModalContent] = useState({
 		formDisplay: undefined,
 		formTitle: '',
 		formId: ''
 	});
 
-	const deleteModal = () => {
+	const showDeleteModal = () => {
 		setModalContent({
-			formDisplay: (
-				<DeleteForm
-					name={name}
-					id={id}
-					deleteItem={deleteItem}
-					closeModal={closeModal}
-				/>
-			),
+			formDisplay: <DeleteForm item={item} closeModal={closeModal} />,
 			formTitle: 'Eliminar',
 			formId: 'delete'
 		});
 	};
 
-	const editModal = () => {
+	const showEditModal = () => {
 		setModalContent({
-			formDisplay: <DeleteForm />,
+			formDisplay: <DeleteForm item={item} closeModal={closeModal} />,
 			formTitle: 'Editar',
 			formId: 'edit'
 		});
@@ -91,8 +89,8 @@ const Item = ({ id, name, daysPerUnit, days, units, category, deleteItem }) => {
 				{modalContent.formDisplay}
 			</Modal>
 			<div className='wrapper'>
-				<Tag className='category'>{category}</Tag>
-				<h2 className='name'>{name}</h2>
+				<Tag className='category'>{item.category}</Tag>
+				<h2 className='name'>{item.name}</h2>
 				<span className={`days ${finishWarning()}`}>
 					{daysCount}
 					<span>días</span>
@@ -119,11 +117,11 @@ const Item = ({ id, name, daysPerUnit, days, units, category, deleteItem }) => {
 				</Button>
 				{actionsDropdown && (
 					<ul className='dropdown' onClick={() => setActionsDropdown(false)}>
-						<li onClick={editModal}>
+						<li onClick={showEditModal}>
 							<FiEdit className='icon' />
 							<span>Editar</span>
 						</li>
-						<li onClick={deleteModal}>
+						<li onClick={showDeleteModal}>
 							<FiTrash2 className='icon' />
 							<span>Eliminar</span>
 						</li>

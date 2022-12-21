@@ -1,10 +1,14 @@
+import { useContext } from 'react';
+import ItemsContext from '../lib/context/ItemsContext';
 import Button from './Button';
 
-const DeleteForm = ({ closeModal, name, id, deleteItem }) => {
+const DeleteForm = ({ item, closeModal }) => {
+	const { deleteItem } = useContext(ItemsContext);
+
 	const handleSubmit = e => {
 		e.preventDefault();
 
-		deleteItem(id);
+		deleteItem(item.id);
 		closeModal(true);
 	};
 
@@ -12,7 +16,7 @@ const DeleteForm = ({ closeModal, name, id, deleteItem }) => {
 		<form className='delete-form' onSubmit={handleSubmit}>
 			<p>
 				¿Seguro que quieres eliminar el ítem {'"'}
-				{name}
+				{item.name}
 				{'"'}?
 			</p>
 			<div className='form-buttons'>
