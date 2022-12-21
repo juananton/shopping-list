@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { CATEGORIES } from '../lib/constants';
+import Button from './Button';
 import Input from './Input';
 import Select from './Select';
 
@@ -89,6 +90,14 @@ const CreateForm = ({ closeModal, addItem }) => {
 				min={0}
 				onChange={e => setUnitsValue(+e.target.value)}
 			/>
+			<div className='form-buttons'>
+				<Button type='button' onClick={closeModal}>
+					Cancelar
+				</Button>
+				<Button type='submit' use='primary'>
+					Añadir
+				</Button>
+			</div>
 		</form>
 	);
 };

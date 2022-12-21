@@ -278,6 +278,16 @@ h6 {
   margin: 0;
 }
 
+.form-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 2rem;
+}
+.form-buttons Button {
+  margin-left: 0.75rem;
+}
+
 /* COMPONENTS */
 .manager {
   width: 600px;
@@ -475,15 +485,6 @@ h6 {
   margin-bottom: 0.5rem;
   font-size: 0.875rem;
   color: rgb(240, 35, 35);
-}
-.create-form .buttons {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  margin-top: 1.25rem;
-}
-.create-form .buttons Button {
-  margin-left: 0.75rem;
 }
 
 label .label {

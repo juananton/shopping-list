@@ -50,14 +50,19 @@ const Manager = () => {
 				body: JSON.stringify(newItem)
 			});
 			const data = await res.json();
-			console.log(data);
 			setData([data, ...listData.data]);
 		} catch (err) {}
 	};
 
 	// Delete item
 
-	const deleteItem = () => {};
+	const deleteItem = async id => {
+		await fetch(`http://localhost:4000/data/${id}`, {
+			method: 'DELETE'
+		});
+
+		setData(listData.data.filter(item => item.id !== id));
+	};
 
 	// Calculate totaldays of each item
 	listData.data.forEach(item => {
@@ -69,7 +74,7 @@ const Manager = () => {
 	return (
 		<div className='manager'>
 			<Header addItem={addItem} />
-			<ItemsList listData={listData} />
+			<ItemsList listData={listData} deleteItem={deleteItem} />
 		</div>
 	);
 };

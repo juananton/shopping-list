@@ -11,7 +11,7 @@ import DeleteForm from './DeleteForm';
 import Modal from './Modal';
 import Tag from './Tag';
 
-const Item = ({ name, daysPerUnit, days, units, category }) => {
+const Item = ({ id, name, daysPerUnit, days, units, category, deleteItem }) => {
 	const [daysCount, setDaysCount] = useState(days);
 	const [unitsCount, setUnitsCount] = useState(units);
 	const [actionsDropdown, setActionsDropdown] = useState(false);
@@ -58,7 +58,14 @@ const Item = ({ name, daysPerUnit, days, units, category }) => {
 
 	const deleteModal = () => {
 		setModalContent({
-			formDisplay: <DeleteForm />,
+			formDisplay: (
+				<DeleteForm
+					name={name}
+					id={id}
+					deleteItem={deleteItem}
+					closeModal={closeModal}
+				/>
+			),
 			formTitle: 'Eliminar',
 			formId: 'delete'
 		});

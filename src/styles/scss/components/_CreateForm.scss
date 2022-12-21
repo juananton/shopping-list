@@ -10,15 +10,4 @@
 			color: $color-red;
 		}
 	}
-
-	.buttons {
-		display: flex;
-		align-items: center;
-		justify-content: flex-end;
-		margin-top: 1.25rem;
-
-		Button {
-			margin-left: 0.75rem;
-		}
-	}
 }

@@ -1,74 +1,32 @@
 {
-	"data": [
-		{
-			"name": "Queso",
-			"daysPerUnit": 7,
-			"units": 0,
-			"category": "Comida",
-			"id": 1
-		},
-		{
-			"name": "Aceite",
-			"daysPerUnit": 7,
-			"units": 0,
-			"category": "Comida",
-			"id": 2
-		},
-		{
-			"name": "Papel higiénico",
-			"daysPerUnit": 5,
-			"units": 6,
-			"category": "Baño",
-			"id": 3
-		},
-		{
-			"name": "Lentejas",
-			"daysPerUnit": 14,
-			"units": 0,
-			"category": "Comida",
-			"id": 4
-		},
-		{
-			"name": "Pastillas lavavajillas",
-			"daysPerUnit": 25,
-			"units": 1,
-			"category": "Limpieza",
-			"id": 5
-		},
-		{
-			"name": "Tostas de maíz",
-			"daysPerUnit": 7,
-			"units": 0,
-			"category": "Comida",
-			"id": 6
-		},
-		{
-			"name": "Pasta de dientes",
-			"daysPerUnit": 15,
-			"units": 2,
-			"category": "Baño",
-			"id": 7
-		},
-		{
-			"name": "Bolsas de basura",
-			"daysPerUnit": 30,
-			"units": 1,
-			"category": "Limpieza",
-			"id": 8
-		},
-		{
-			"name": "Plátanos",
-			"daysPerUnit": 2,
-			"units": 4,
-			"category": "Comida",
-			"id": 9
-		},
-		{
-			"name": "Jabón de manos",
-			"daysPerUnit": 30,
-			"units": 2,
-			"category": "Baño",
-			"id": 10
-		}
-	]
+  "data": [
+    {
+      "name": "Queso",
+      "daysPerUnit": 7,
+      "units": 0,
+      "category": "Comida",
+      "id": 1
+    },
+    {
+      "name": "Aceite",
+      "daysPerUnit": 7,
+      "units": 0,
+      "category": "Comida",
+      "id": 2
+    },
+    {
+      "name": "Papel higiénico",
+      "daysPerUnit": 5,
+      "units": 6,
+      "category": "Baño",
+      "id": 3
+    },
+    {
+      "name": "Lentejas",
+      "daysPerUnit": 14,
+      "units": 0,
+      "category": "Comida",
+      "id": 4
+    }
+  ]
 }
