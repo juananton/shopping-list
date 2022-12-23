@@ -5,13 +5,12 @@ import Button from './Button';
 import Input from './Input';
 import Select from './Select';
 
-const CreateForm = ({ setShowModal }) => {
-	const { addItem } = useContext(ItemsContext);
+const EditForm = ({ item, closeModal }) => {
+	const { updateItem } = useContext(ItemsContext);
 
-	const [nameValue, setNameValue] = useState('');
-	const [daysPerUnitValue, setDaysPerUnitValue] = useState(1);
-	const [unitsValue, setUnitsValue] = useState(1);
-	const [categoryValue, setCategoryValue] = useState(CATEGORIES.CAT1);
+	const [nameValue, setNameValue] = useState(item.name);
+	const [daysPerUnitValue, setDaysPerUnitValue] = useState(item.daysPerUnit);
+	const [categoryValue, setCategoryValue] = useState(item.category);
 	const [nameValidation, setNameValidation] = useState({
 		message: '',
 		error: false
@@ -28,15 +27,15 @@ const CreateForm = ({ setShowModal }) => {
 			return;
 		}
 
-		const newItem = {
+		const updatedItem = {
 			name: nameValue,
 			daysPerUnit: daysPerUnitValue,
-			units: unitsValue,
-			category: categoryValue
+			category: categoryValue,
+			id: item.id
 		};
 
-		addItem(newItem);
-		setShowModal(false);
+		updateItem(updatedItem);
+		closeModal(true);
 	};
 
 	const handleNameChange = e => {
@@ -86,23 +85,16 @@ const CreateForm = ({ setShowModal }) => {
 				min={1}
 				onChange={e => setDaysPerUnitValue(+e.target.value)}
 			/>
-			<Input
-				type='number'
-				label='Unidades'
-				value={unitsValue}
-				min={0}
-				onChange={e => setUnitsValue(+e.target.value)}
-			/>
 			<div className='form-buttons'>
-				<Button type='button' onClick={() => setShowModal(false)}>
+				<Button type='button' onClick={closeModal}>
 					Cancelar
 				</Button>
 				<Button type='submit' use='primary'>
-					Añadir
+					Actualizar
 				</Button>
 			</div>
 		</form>
 	);
 };
 
-export default CreateForm;
+export default EditForm;

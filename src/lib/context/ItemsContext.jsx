@@ -54,6 +54,25 @@ export const ItemsProvider = ({ children }) => {
 		} catch (err) {}
 	};
 
+	// Update Item
+	const updateItem = async updatedItem => {
+		try {
+			const res = await fetch(`http://localhost:4000/data/${updatedItem.id}`, {
+				method: 'PATCH',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify(updatedItem)
+			});
+			const data = await res.json();
+			setData(
+				listData.data.map(item =>
+					item.id === data.id ? { ...item, ...data } : item
+				)
+			);
+		} catch (err) {}
+	};
+
 	// Delete item
 	const deleteItem = async id => {
 		await fetch(`http://localhost:4000/data/${id}`, {
@@ -75,7 +94,8 @@ export const ItemsProvider = ({ children }) => {
 			value={{
 				listData,
 				addItem,
-				deleteItem
+				deleteItem,
+				updateItem
 			}}
 		>
 			{children}

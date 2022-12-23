@@ -47,6 +47,11 @@
 			background-color: $color-light-green;
 			border-color: $color-light-green;
 		}
+
+		&:focus {
+			background-color: $color-gray-1;
+			color: $color-gray-2;
+		}
 	}
 	&:disabled {
 		background-color: $color-gray-1;
