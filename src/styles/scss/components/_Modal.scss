@@ -9,7 +9,7 @@
 		background-color: rgba($color-black, 0.75);
 
 		display: flex;
-		align-items: center;
+		align-items: flex-start;
 		justify-content: center;
 	}
 
@@ -20,6 +20,7 @@
 		border-radius: $radius-md;
 		padding: 1.5rem;
 		min-height: 8rem;
+		transform: translateY(12.5%);
 
 		&-header {
 			display: flex;

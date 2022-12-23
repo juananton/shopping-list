@@ -450,7 +450,7 @@ h6 {
   padding: 1rem;
   background-color: rgba(28, 28, 28, 0.75);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 }
 .modal-window {
@@ -460,6 +460,7 @@ h6 {
   border-radius: 0.75rem;
   padding: 1.5rem;
   min-height: 8rem;
+  transform: translateY(12.5%);
 }
 .modal-window-header {
   display: flex;
