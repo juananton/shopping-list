@@ -5,10 +5,11 @@ import Modal from './Modal';
 
 const Header = () => {
 	const [showModal, setShowModal] = useState(false);
+	const closeModal = () => setShowModal(false);
 
 	return (
 		<div className='header'>
-			<Modal formTitle='Añadir' formId='create'>
+			<Modal formTitle='Añadir' formId='create' closeModal={closeModal}>
 				{showModal && <CreateForm setShowModal={setShowModal} />}
 			</Modal>
 			<h1>Despensa</h1>

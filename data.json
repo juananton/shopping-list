@@ -4,36 +4,28 @@
       "name": "Queso",
       "daysPerUnit": 7,
       "category": "Comida",
-      "units": 4,
+      "units": 0,
       "id": 1
     },
     {
       "name": "Aceite",
       "daysPerUnit": 7,
       "category": "Comida",
-      "units": 3,
+      "units": 0,
       "id": 2
     },
     {
-      "name": "Papel higiénico",
-      "daysPerUnit": 5,
-      "category": "Baño",
-      "units": 4,
-      "id": 3
-    },
-    {
       "name": "Lentejas",
-      "daysPerUnit": 8,
+      "daysPerUnit": 5,
       "category": "Comida",
-      "units": 2,
-      "id": 4,
-      "totalDays": 6
+      "units": 0,
+      "id": 4
     },
     {
       "name": "Leche",
-      "daysPerUnit": 9,
+      "daysPerUnit": 8,
       "category": "Comida",
-      "units": 3,
+      "units": 0,
       "id": 5
     }
   ]
