@@ -35,6 +35,11 @@ const Item = ({ item, days }) => {
 		setDaysCount(daysCount - item.daysPerUnit);
 	};
 
+	// Calculate days
+	useEffect(() => {
+		setDaysCount(unitsCount * item.daysPerUnit);
+	}, [unitsCount, item.daysPerUnit]);
+
 	// Calculate units
 	useEffect(() => {
 		setUnitsCount(Math.ceil(daysCount / item.daysPerUnit));
