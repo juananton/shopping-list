@@ -28,11 +28,13 @@ const Item = ({ item, days }) => {
 	const addUnit = () => {
 		if (daysCount >= 0) {
 			setDaysCount(daysCount + item.daysPerUnit);
+			updateItem({ ...updatedItem, units: unitsCount + 1 });
 		}
 	};
 
 	const removeUnit = () => {
 		setDaysCount(daysCount - item.daysPerUnit);
+		updateItem({ ...updatedItem, units: unitsCount - 1 });
 	};
 
 	// Calculate days
@@ -51,9 +53,10 @@ const Item = ({ item, days }) => {
 		if (daysCount > 0) {
 			daysTimeout = setTimeout(() => {
 				setDaysCount(daysCount - 1);
-			}, 50000);
-		} else if (unitsCount === 0) {
-			setDaysCount(0);
+				updateItem(updatedItem);
+			}, 2000);
+		} else if (daysCount === 0) {
+			updateItem(updatedItem);
 		}
 		return () => {
 			clearTimeout(daysTimeout);
@@ -67,20 +70,6 @@ const Item = ({ item, days }) => {
 			return 'warning';
 		}
 	};
-
-	// Fetch every x secs the updated item
-	useEffect(() => {
-		let fetchTimeout = null;
-		if (unitsCount > 0) {
-			fetchTimeout = setTimeout(() => {
-				updateItem(updatedItem);
-			}, 5000);
-		}
-
-		return () => {
-			clearTimeout(fetchTimeout);
-		};
-	}, [unitsCount, updatedItem]);
 
 	// Actions dropdown
 	const [dropdownOpened, setDropdownOpened] = useState(false);
