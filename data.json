@@ -27,6 +27,13 @@
       "category": "Comida",
       "units": 0,
       "id": 5
+    },
+    {
+      "name": "Lavavajillas",
+      "daysPerUnit": 30,
+      "units": 0,
+      "category": "Limpieza",
+      "id": 6
     }
   ]
 }

@@ -372,7 +372,8 @@ h6 {
   list-style: none;
   z-index: 1;
   right: 0;
-  top: 2rem;
+  margin: 0;
+  top: 3rem;
   color: rgb(0, 154, 36);
   min-width: 148px;
 }
@@ -430,10 +431,6 @@ h6 {
 .btn.btn-nobg:hover, .btn.btn-nobg:focus {
   background-color: rgb(220, 236, 220);
   border-color: rgb(220, 236, 220);
-}
-.btn.btn-nobg:focus {
-  background-color: #efefef;
-  color: #bebebe;
 }
 .btn:disabled {
   background-color: #efefef;

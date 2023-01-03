@@ -74,14 +74,22 @@ const Item = ({ item, days }) => {
 	// Actions dropdown
 	const [dropdownOpened, setDropdownOpened] = useState(false);
 	const dropdownRef = useRef(null);
+	const dropdownButtonRef = useRef(null);
 
 	const openDropdown = () => setDropdownOpened(true);
 	const closeDropdown = () => setDropdownOpened(false);
 
+	const handelClick = () => {
+		if (!dropdownOpened) {
+			openDropdown();
+		} else {
+			closeDropdown();
+			dropdownButtonRef.current.blur();
+		}
+	};
+
 	useEffect(() => {
 		if (!dropdownOpened) return;
-
-		console.log(dropdownRef);
 
 		const handleClickOutside = e => {
 			!dropdownRef.current.contains(e.target) && closeDropdown();
@@ -139,31 +147,39 @@ const Item = ({ item, days }) => {
 				<Button onClick={addUnit} variant='icon'>
 					<FiPlus className='icon' />
 				</Button>
-				<Button onClick={openDropdown} variant='icon' use='nobg'>
-					<FiMoreVertical className='icon' />
-				</Button>
-				{dropdownOpened && (
-					<ul ref={dropdownRef} className='dropdown'>
-						<li
-							onClick={() => {
-								showEditModal();
-								closeDropdown();
-							}}
-						>
-							<FiEdit className='icon' />
-							<span>Editar</span>
-						</li>
-						<li
-							onClick={() => {
-								showDeleteModal();
-								closeDropdown();
-							}}
-						>
-							<FiTrash2 className='icon' />
-							<span>Eliminar</span>
-						</li>
-					</ul>
-				)}
+				<div className='dropdownGroup' ref={dropdownRef}>
+					<Button
+						// className='btn btn-icon ntn-nobg'
+						ref={dropdownButtonRef}
+						onClick={handelClick}
+						variant='icon'
+						use='nobg'
+					>
+						<FiMoreVertical className='icon' />
+					</Button>
+					{dropdownOpened && (
+						<ul className='dropdown'>
+							<li
+								onClick={() => {
+									showEditModal();
+									closeDropdown();
+								}}
+							>
+								<FiEdit className='icon' />
+								<span>Editar</span>
+							</li>
+							<li
+								onClick={() => {
+									showDeleteModal();
+									closeDropdown();
+								}}
+							>
+								<FiTrash2 className='icon' />
+								<span>Eliminar</span>
+							</li>
+						</ul>
+					)}
+				</div>
 			</div>
 		</div>
 	);
