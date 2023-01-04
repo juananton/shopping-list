@@ -24,7 +24,8 @@ const Item = ({ item, days }) => {
 		id: item.id
 	};
 
-	// Add and remove unit logic
+	// Add and remove units
+
 	const addUnit = () => {
 		if (daysCount >= 0) {
 			setDaysCount(daysCount + item.daysPerUnit);
@@ -54,7 +55,7 @@ const Item = ({ item, days }) => {
 			daysTimeout = setTimeout(() => {
 				setDaysCount(daysCount - 1);
 				updateItem(updatedItem);
-			}, 2000);
+			}, 60000);
 		} else if (daysCount === 0) {
 			updateItem(updatedItem);
 		}

@@ -12,9 +12,9 @@ const Header = () => {
 			<Modal formTitle='Añadir' formId='create' closeModal={closeModal}>
 				{showModal && <CreateForm setShowModal={setShowModal} />}
 			</Modal>
-			<h1>Despensa</h1>
+			<h1>Mi despensa</h1>
 			<Button use='primary' onClick={() => setShowModal(true)}>
-				Añadir
+				Añadir artículo
 			</Button>
 		</div>
 	);
